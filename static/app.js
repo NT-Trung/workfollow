@@ -1,0 +1,3 @@
+function editTask(t){for(const k in t){const el=document.getElementById(k); if(el) el.value=t[k]||'';} window.scrollTo({top:0,behavior:'smooth'});} 
+function makeChart(id,type='line'){const el=document.getElementById(id); if(!el||!window.Chart)return; new Chart(el,{type,data:{labels:JSON.parse(el.dataset.labels),datasets:[{label:'Tỷ lệ hoàn thành (%)',data:JSON.parse(el.dataset.values),fill:true,tension:.35}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100}}}})}
+makeChart('lineChart','line'); makeChart('barWeek','bar'); makeChart('barMonth','bar');

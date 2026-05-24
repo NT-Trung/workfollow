@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block title %}Kế hoạch tuần{% endblock %}{% block subtitle %}Xem công việc từ Thứ Hai đến Chủ Nhật{% endblock %}{% block content %}
+<div class="switch"><a href="/week?date={{prev}}">← Tuần trước</a><b>{{days[0]|datevn}} - {{days[6]|datevn}}</b><a href="/week?date={{nxt}}">Tuần sau →</a></div><section class="week-grid">{% for d in days %}<div class="day"><h3>{{['Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy','Chủ Nhật'][loop.index0]}}<small>{{d|datevn}}</small></h3>{% for t in data[d] %}<div class="mini {{t.priority|lower|replace(' ','-')}}"><b>{{t.name}}</b><span>{{t.status}}</span></div>{% else %}<p class="muted">Trống</p>{% endfor %}</div>{% endfor %}</section>
+{% endblock %}
