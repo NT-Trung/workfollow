@@ -391,52 +391,282 @@ textarea {
 
 @media(max-width:980px) {
     body {
-        display: block
+        display: block;
+        background: #f4f7fb;
+        font-size: 15px;
     }
 
     .sidebar {
         width: 100%;
         min-height: auto;
-        position: static
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        padding: 14px 14px 10px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 6px 20px #10182812;
+    }
+
+    .brand {
+        margin-bottom: 12px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .brand h1 {
+        font-size: 20px;
+    }
+
+    .brand p {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        background: #f1f5f9;
+        white-space: nowrap;
+    }
+
+    nav a.active {
+        background: linear-gradient(135deg, #4f8cff, #5b43ff);
+        color: #fff;
     }
 
     .user {
-        position: static;
-        margin-top: 20px
+        display: none;
     }
 
     main {
-        padding: 18px
-    }
-
-    .cards,
-    .grid.two,
-    .week-grid,
-    .calendar {
-        grid-template-columns: 1fr
-    }
-
-    .filters {
-        grid-template-columns: 1fr
-    }
-
-    .split {
-        grid-template-columns: 1fr
+        padding: 16px 12px 28px;
+        overflow: visible;
     }
 
     header {
         gap: 12px;
         align-items: flex-start;
-        flex-direction: column
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    header .btn {
+        width: 100%;
+        text-align: center;
+        padding: 13px 16px;
+        border-radius: 14px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .card,
+    .panel {
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: 0 6px 22px #1018280d;
+    }
+
+    .card span {
+        font-size: 13px;
+    }
+
+    .card b {
+        font-size: 28px;
+    }
+
+    .card.purple {
+        grid-column: 1 / -1;
+    }
+
+    .grid.two {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 14px;
+    }
+
+    canvas {
+        max-height: 260px;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    input,
+    select,
+    textarea {
+        min-height: 46px;
+        font-size: 15px;
+        border-radius: 14px;
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .task-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px 10px;
+        padding: 14px;
+    }
+
+    .task-row .date {
+        grid-column: 1 / -1;
+        font-size: 13px;
+        color: var(--muted);
     }
 
     .task-card {
-        align-items: flex-start;
-        flex-direction: column
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .task-card p {
+        margin: 8px 0;
+        line-height: 1.45;
     }
 
     .actions {
         justify-content: flex-start;
-        flex-wrap: wrap
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .actions button,
+    .actions form,
+    .actions form button {
+        flex: 1;
+        min-width: 90px;
+    }
+
+    .pill {
+        min-width: auto;
+        height: 30px;
+        padding: 0 12px;
+    }
+
+    .status {
+        width: 100%;
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 8px 10px;
+    }
+
+    .switch {
+        gap: 10px;
+        flex-wrap: wrap;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .switch b {
+        width: 100%;
+        order: -1;
+    }
+
+    .switch a {
+        flex: 1;
+        background: #eef2ff;
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    .week-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .day {
+        min-height: auto;
+        padding: 14px;
+    }
+
+    .day h3 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(7, minmax(42px, 1fr));
+        gap: 6px;
+        overflow-x: auto;
+    }
+
+    .dow {
+        font-size: 12px;
+    }
+
+    .cal-day {
+        min-height: 92px;
+        padding: 8px;
+        border-radius: 12px;
+        font-size: 13px;
+    }
+
+    .mini-line {
+        font-size: 11px;
+        padding: 3px 5px;
+    }
+}
+
+@media(max-width:520px) {
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .card b {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .calendar {
+        min-width: 620px;
     }
 }
