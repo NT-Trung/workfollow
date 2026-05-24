@@ -190,4 +190,4 @@ def datevn(d):
     return d.strftime('%d/%m/%Y') if d else ''
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
